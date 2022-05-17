@@ -40,3 +40,13 @@ pairs.panels(states_data,
              hist.col = 4,
              stars = TRUE,
              ci = TRUE) 
+
+# Check for outliers
+# An outlier = 1.5 * interquartile range
+# IQR = distance between 25th and 75th percentile
+# need to check speed and distance for outliers
+
+attach(states_data)
+boxplot(Population, 
+        main = "Population", 
+        sub = paste("Outlier rows: ", boxplot.stats(Population)$out))
